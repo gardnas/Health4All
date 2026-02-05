@@ -1,5 +1,4 @@
 # Health4All Project Continutation
-
 **INFO Winter 2026 / Spring 2026 Capstone Project:**
 *Team Chansey*
 
@@ -71,7 +70,7 @@ We welcome contributions! If you are interested in helping develop the Phase II 
 ## License
 Distributed under the **MIT License**. See `LICENSE` file for more information.
 
-**Original Project Acknowledgements:**
+## Original Project Acknowledgements:
 This project is a continuation of the work done by the original Health4All capstone team in Winter 2025. We acknowledge their foundational work in establishing the initial map, starting website, and dataset integration. See the original repository for more information.
 * Original Repository: [poben2002/Health4All](https://github.com/poben2002/Health4All)
 * Current deployement: https://health4all-frontend.onrender.com/#/
