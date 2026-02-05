@@ -1,6 +1,6 @@
 # Health4All Project Continutation
 
-**INFO Winter 2026 Spring 2026 Capstone Project:**
+**INFO Winter 2026 / Spring 2026 Capstone Project:**
 *Team Chansey*
 
 ## Project Description
