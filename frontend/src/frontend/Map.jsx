@@ -29,17 +29,6 @@ const LEGEND_BINS = [
   { label: '175+', color: '#2D4A6B' },
 ];
 
-function getLargestRace(raceData) {
-  const races = [
-    { name: 'White', pct: raceData.white_pop_pct },
-    { name: 'Hispanic or Latino', pct: raceData.hispanic_latino_pop_pct },
-    { name: 'Asian', pct: raceData.asian_pop_pct },
-    { name: 'Black or African American', pct: raceData.black_african_american_pop_pct },
-    { name: 'Two or more races', pct: raceData.two_or_more_races_pop_pct },
-  ];
-  const largest = races.reduce((a, b) => (a.pct > b.pct ? a : b));
-  return `${largest.name} (${largest.pct.toFixed(0)}%)`;
-}
 
 function Accordion({ title, children }) {
   const [open, setOpen] = useState(false);
@@ -220,14 +209,43 @@ function SidePanel({ selected, allData }) {
           </div>
         )}
 
-        {raceData && (
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', paddingBottom: '10px' }}>
-            <span style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: 'var(--ink-soft)' }}>Largest group</span>
-            <span style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 500, color: 'var(--ink)', marginLeft: '8px', textAlign: 'right', maxWidth: '55%' }}>
-              {getLargestRace(raceData)}
-            </span>
-          </div>
-        )}
+        {raceData && (() => {
+          const groups = [
+            { label: 'Hispanic / Latino', pct: raceData.hispanic_latino_pop_pct },
+            { label: 'White', pct: raceData.white_pop_pct },
+            { label: 'Black / African American', pct: raceData.black_african_american_pop_pct },
+            { label: 'American Indian / Alaska Native', pct: raceData.american_indian_alaska_native_pop_pct },
+            { label: 'Asian', pct: raceData.asian_pop_pct },
+            { label: 'Native Hawaiian / Pacific Islander', pct: raceData.native_hawaiian_other_pacific_islander_pop_pct },
+            { label: 'Two or more races', pct: raceData.two_or_more_races_pop_pct },
+            { label: 'Other', pct: raceData.other_race_pop_pct },
+          ]
+            .filter(g => g.pct > 0)
+            .sort((a, b) => b.pct - a.pct);
+          return (
+            <div style={{ borderTop: '1px solid var(--rule)', paddingTop: '14px', marginTop: '4px' }}>
+              <p style={{
+                fontFamily: 'var(--font-sans)', fontSize: '11px', fontWeight: 600,
+                letterSpacing: '0.07em', textTransform: 'uppercase', color: 'var(--ink-muted)', marginBottom: '12px',
+              }}>
+                Race / Ethnicity
+              </p>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                {groups.map(g => (
+                  <div key={g.label}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '4px' }}>
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', color: 'var(--ink-soft)' }}>{g.label}</span>
+                      <span style={{ fontFamily: 'var(--font-sans)', fontSize: '12px', fontWeight: 500, color: 'var(--ink)', marginLeft: '8px', flexShrink: 0 }}>{g.pct.toFixed(1)}%</span>
+                    </div>
+                    <div style={{ height: '5px', backgroundColor: '#e5e7eb', borderRadius: '3px', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: `${g.pct}%`, backgroundColor: 'var(--brand)', borderRadius: '3px' }} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
       </div>
 
       <div style={{ marginTop: '8px' }}>
