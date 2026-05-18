@@ -23,9 +23,9 @@ const sdohIndicators = [
   },
   {
     number: "04",
-    label: "Largest group",
-    mapLabel: "Largest group",
-    body: "Race and ethnicity are social — not biological — predictors of screening access. Historical disinvestment and unequal clinic distribution have concentrated access barriers in many communities of color.",
+    label: "Race / Ethnicity",
+    mapLabel: "Race / Ethnicity breakdown",
+    body: "Race and ethnicity are social — not biological — predictors of screening access. Historical disinvestment and unequal clinic distribution have concentrated access barriers in many communities of color. The map shows the full demographic breakdown for each neighborhood.",
   },
 ];
 
@@ -111,10 +111,11 @@ function Primer() {
             A reading guide to the data.
           </h1>
           <p className="lede" style={{ marginTop: "24px", maxWidth: "58ch", margin: "24px auto 0" }}>
-            The map shows breast cancer diagnosis rates alongside four social
-            conditions across King County neighborhoods. This page explains what
-            those conditions are, why they're on the map, and how to read the
-            numbers without misinterpreting them.
+            The map shows breast cancer diagnosis rates alongside social
+            conditions and demographic breakdowns across King County
+            neighborhoods. This page explains what those conditions are, why
+            they're on the map, and how to read the numbers without
+            misinterpreting them.
           </p>
           <div style={{ marginTop: "40px", borderTop: "1px solid var(--rule)", paddingTop: "20px" }}>
             <div className="flex justify-center gap-12">
@@ -154,11 +155,11 @@ function Primer() {
           </p>
 
           <p style={{ marginTop: "24px", color: "var(--ink-soft)", fontSize: "17px", lineHeight: "28px" }}>
-            The four indicators on this map were selected because they each
-            measure a distinct structural barrier to screening access, and
-            because reliable neighborhood-level data is available for King
-            County from the U.S. Census Bureau. Together they explain most of
-            the variation in mammography rates across the county.
+            The indicators on this map were selected because they each measure a
+            distinct structural barrier to screening access, and because
+            reliable neighborhood-level data is available for King County from
+            the U.S. Census Bureau. Together they explain most of the variation
+            in mammography rates across the county.
           </p>
 
         </div>
@@ -168,7 +169,7 @@ function Primer() {
       <section style={{ backgroundColor: "var(--surface-warm)", borderTop: "1px solid var(--rule)" }}>
         <div className="max-w-[1200px] mx-auto px-10" style={{ paddingTop: "48px", paddingBottom: "96px", textAlign: "left" }}>
           <p style={{ color: "var(--ink-muted)", fontFamily: "var(--font-sans)", fontWeight: 600, fontSize: "12px", letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "28px" }}>
-            The four indicators shown on the map
+            The indicators shown on the map
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
             {sdohIndicators.map((ind, i) => (
