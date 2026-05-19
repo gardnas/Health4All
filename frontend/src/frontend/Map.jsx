@@ -15,19 +15,19 @@ const KC_INCOME_AVG = 104025;
 
 function getBinColor(rate) {
   if (rate === null || rate === undefined) return '#D1D5DB';
-  if (rate < 120) return '#C5DAEA';
-  if (rate < 135) return '#90BEDD';
-  if (rate < 155) return '#5A95C8';
-  if (rate < 175) return '#3C6D96';
-  return '#2D4A6B';
+  if (rate < 120) return '#7BAFC9';
+  if (rate < 135) return '#4F93B8';
+  if (rate < 155) return '#2972A4';
+  if (rate < 175) return '#1A5282';
+  return '#0F3560';
 }
 
 const LEGEND_BINS = [
-  { label: '< 120', color: '#C5DAEA' },
-  { label: '120–134', color: '#90BEDD' },
-  { label: '135–154', color: '#5A95C8' },
-  { label: '155–174', color: '#3C6D96' },
-  { label: '175+', color: '#2D4A6B' },
+  { label: '< 120', color: '#7BAFC9' },
+  { label: '120–134', color: '#4F93B8' },
+  { label: '135–154', color: '#2972A4' },
+  { label: '155–174', color: '#1A5282' },
+  { label: '175+', color: '#0F3560' },
 ];
 
 
