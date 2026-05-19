@@ -11,6 +11,7 @@ import incomeJson from "./Data/median_income.json";
 import povertyJson from "./Data/poverty_population.json";
 
 const KC_AVG = 145.2;
+const KC_INCOME_AVG = 104025;
 
 function getBinColor(rate) {
   if (rate === null || rate === undefined) return '#D1D5DB';
@@ -182,14 +183,25 @@ function SidePanel({ selected, allData }) {
           Social Determinants of Health
         </p>
 
-        {incomeData && (
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', paddingBottom: '10px', borderBottom: '1px solid var(--rule)', marginBottom: '10px' }}>
-            <span style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: 'var(--ink-soft)' }}>Median household income</span>
-            <span style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 500, color: 'var(--ink)', marginLeft: '8px', flexShrink: 0 }}>
-              ${Math.round(incomeData.median_income).toLocaleString()}
-            </span>
-          </div>
-        )}
+        {incomeData && (() => {
+          const incomeDelta = Math.round(incomeData.median_income) - KC_INCOME_AVG;
+          const incomeAbove = incomeDelta >= 0;
+          return (
+            <div style={{ paddingBottom: '10px', borderBottom: '1px solid var(--rule)', marginBottom: '10px' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
+                <span style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: 'var(--ink-soft)' }}>Median household income</span>
+                <span style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', fontWeight: 500, color: 'var(--ink)', marginLeft: '8px', flexShrink: 0 }}>
+                  ${Math.round(incomeData.median_income).toLocaleString()}
+                </span>
+              </div>
+              <div style={{ textAlign: 'right', marginTop: '3px' }}>
+                <span style={{ fontFamily: 'var(--font-sans)', fontSize: '11px', color: incomeAbove ? '#2D7A4F' : '#B8593A' }}>
+                  {incomeAbove ? '▲' : '▼'} ${Math.abs(incomeDelta).toLocaleString()} {incomeAbove ? 'above' : 'below'} county avg
+                </span>
+              </div>
+            </div>
+          );
+        })()}
 
         {insuranceData && (
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', paddingBottom: '10px', borderBottom: '1px solid var(--rule)', marginBottom: '10px' }}>
@@ -483,7 +495,7 @@ function MapPage() {
           fontFamily: 'var(--font-sans)', fontSize: '12px', color: 'var(--ink-muted)',
           marginTop: '14px', lineHeight: 1.6, textAlign: 'left',
         }}>
-          Source: Washington State Cancer Registry via King County Community Health Indicators, 2018–2022. Rates are age-adjusted per 100,000 females. "Similar / Above / Below" reflects comparison of 95% confidence intervals against the KC county average (145.2).
+          Source: Washington State Cancer Registry via King County Community Health Indicators, 2018–2022. Rates are age-adjusted per 100,000 females. "Similar / Above / Below" reflects comparison of 95% confidence intervals against the KC county average (145.2). Income, insurance, poverty, and demographic figures from U.S. Census Bureau American Community Survey.
         </p>
       </div>
     </div>
