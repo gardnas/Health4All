@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import healthLensLogo from "../assets/HealthLens Logo.png";
+import lensIcon from "../assets/Lens.png";
 
 const navItems = [
   { path: "/map", label: "Map" },
@@ -27,9 +29,14 @@ function Navbar() {
         <div className="hidden md:flex items-center h-[72px]">
           <Link
             to="/"
-            className="mr-10 no-underline"
+            className="mr-10 no-underline flex items-center gap-2"
             style={{ color: "var(--ink)" }}
           >
+            <img
+              src={lensIcon}
+              alt=""
+              style={{ height: "28px", width: "auto", display: "block", mixBlendMode: "multiply" }}
+            />
             <span
               style={{
                 fontFamily: "var(--font-serif)",
