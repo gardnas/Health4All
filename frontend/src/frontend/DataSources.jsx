@@ -15,7 +15,7 @@ function SectionHeader({ title }) {
 const limitations = [
   {
     heading: "This tool does not measure personal risk",
-    body: "All data is community-level and reflects aggregate patterns across neighborhoods, not the circumstances of any individual. Diagnosis rates count recorded cases — cancers that were found through screening. A higher rate often means better screening access, not more cancer. Nothing on this site can or should be used to assess personal cancer risk or make medical decisions.",
+    body: "All data is community-level and reflects aggregate patterns across neighborhoods, not the circumstances of any individual. Diagnosis rates count recorded cases which are cancers that were found through screening. A higher rate often means better screening access, not more cancer. Nothing on this site can or should be used to assess personal cancer risk or make medical decisions.",
   },
   {
     heading: "Data is not real-time",
@@ -68,7 +68,7 @@ const mapSteps = [
   {
     n: "02",
     label: "5-bin color classification of diagnosis rates",
-    body: "Age-adjusted rates are grouped into five bins: < 120 / 120–134 / 135–154 / 155–174 / 175+ per 100,000 females. Each bin maps to a shade on a single-hue blue color scale — lighter means a lower recorded rate, darker means higher.",
+    body: "Age-adjusted rates are grouped into five bins: < 120 / 120–134 / 135–154 / 155–174 / 175+ per 100,000 females. Each bin maps to a shade on a single-hue blue color scale, lighter means a lower recorded rate, darker means higher.",
   },
   {
     n: "03",
@@ -77,7 +77,7 @@ const mapSteps = [
   },
   {
     n: "04",
-    label: "Static data — no backend server",
+    label: "Static data (no backend server)",
     body: "All data is bundled as static JSON files loaded entirely in the browser. There is no backend server or database. The map works immediately on page load with no network requests to an external API.",
   },
   {
@@ -258,7 +258,7 @@ function AgeAdjustment() {
           Breast cancer is significantly more common in older women. Without
           controlling for age, a neighborhood with a large elderly population
           would appear to have more cancer simply because its residents are
-          older — not because anything is worse about the care environment
+          older, not because anything is worse about the care environment
           there. Age adjustment removes this demographic distortion so that
           neighborhoods can be compared on equal footing.
         </p>
@@ -273,7 +273,7 @@ function AgeAdjustment() {
           age band, weighted against the 2000 U.S. population proportions, and
           summed into a single comparable rate per 100,000 females. Age
           adjustment was performed upstream by the Washington State Cancer
-          Registry — HealthLens received pre-adjusted rates.
+          Registry.
         </p>
 
         <SourceLink href="https://seer.cancer.gov/stdpopulations/">
