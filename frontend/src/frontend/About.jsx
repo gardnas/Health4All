@@ -7,7 +7,7 @@ function Hero() {
     <section style={{ backgroundColor: "var(--surface)" }}>
       <div
         className="max-w-[1200px] mx-auto px-10"
-        style={{ paddingTop: "80px", paddingBottom: "64px", textAlign: "left" }}
+        style={{ paddingTop: "80px", paddingBottom: "72px", textAlign: "center" }}
       >
         <div className="eyebrow" style={{ marginBottom: "24px" }}>
           About this project
@@ -21,14 +21,14 @@ function Hero() {
             letterSpacing: "-0.01em",
             color: "var(--ink)",
             maxWidth: "22ch",
-            textAlign: "left",
+            margin: "0 auto",
           }}
         >
           HealthLens: a health equity platform.
         </h1>
         <p
           className="lede"
-          style={{ marginTop: "24px", maxWidth: "58ch", textAlign: "left" }}
+          style={{ marginTop: "24px", maxWidth: "58ch", margin: "24px auto 0" }}
         >
           Built by a University of Washington capstone team to make breast
           cancer data across King County readable for everyone — not just
