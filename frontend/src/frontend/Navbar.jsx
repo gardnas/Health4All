@@ -4,8 +4,8 @@ import healthLensLogo from "../assets/HealthLens Logo.png";
 import lensIcon from "../assets/Lens.png";
 
 const navItems = [
-  { path: "/map", label: "Map" },
   { path: "/primer", label: "Primer" },
+  { path: "/map", label: "Map" },
   { path: "/methodology", label: "Methodology" },
   { path: "/about", label: "About" },
 ];
