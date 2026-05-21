@@ -416,7 +416,7 @@ function MapPage() {
           fontFamily: 'var(--font-serif)', fontSize: '18px', lineHeight: 1.6,
           color: 'var(--ink-soft)', maxWidth: '70ch', textAlign: 'left', marginBottom: '0',
         }}>
-          Age-adjusted diagnosis rates by Health Reporting Area, 2018–2022. Click any neighborhood to see its rate alongside income, insurance, and demographic context.
+          Age-adjusted diagnosis rates by Health Reporting Area, 2018-2022. Click any neighborhood to see its rate alongside income, insurance, and race/ethnicity data.
         </p>
       </div>
 
@@ -460,8 +460,8 @@ function MapPage() {
             )}
             <MapContainer
               center={[47.45, -121.95]}
-              zoom={10}
-              minZoom={9}
+              zoom={9}
+              minZoom={8}
               maxBounds={[[46.7, -123.5], [48.3, -120.5]]}
               maxBoundsViscosity={0.9}
               style={{ height: '100%', width: '100%' }}
