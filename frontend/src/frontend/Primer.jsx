@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
 
@@ -31,20 +31,32 @@ const sdohIndicators = [
 
 function SdohTooltip() {
   const [visible, setVisible] = useState(false);
+  const hideTimer = useRef(null);
+
+  const show = () => {
+    clearTimeout(hideTimer.current);
+    setVisible(true);
+  };
+  const hide = () => {
+    hideTimer.current = setTimeout(() => setVisible(false), 200);
+  };
+
   return (
     <span
       style={{ position: "relative", display: "inline" }}
-      onMouseEnter={() => setVisible(true)}
-      onMouseLeave={() => setVisible(false)}
+      onMouseEnter={show}
+      onMouseLeave={hide}
     >
       <span style={{ borderBottom: "1px solid var(--ink-muted)", paddingBottom: "1px", cursor: "default" }}>
         social determinants of health
       </span>
       {visible && (
         <span
+          onMouseEnter={show}
+          onMouseLeave={hide}
           style={{
             position: "absolute",
-            bottom: "calc(100% + 10px)",
+            bottom: "calc(100% + 8px)",
             left: "50%",
             transform: "translateX(-50%)",
             width: "320px",
@@ -138,12 +150,7 @@ function Primer() {
           <SectionHeader title="What shapes who gets diagnosed" />
 
           <p className="lede">
-            Health is determined by far more than biology or personal behavior.
-            The conditions where people are born, live, work, and age —
-            collectively called{" "}
-            <SdohTooltip />
-            {" "}— predict who gets screened for breast cancer just as reliably as
-            family history or age.
+            Health is determined by far more than biology or personal behavior. The conditions where people are born, live, work, and age, collectively called <SdohTooltip />, predict who gets screened for breast cancer just as reliably as family history or age.
           </p>
 
           <p style={{ marginTop: "32px", color: "var(--ink-soft)", fontSize: "17px", lineHeight: "28px" }}>
