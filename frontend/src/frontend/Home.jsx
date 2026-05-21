@@ -1,10 +1,6 @@
 import React from "react";
 import homepageImg from "../assets/homepage.png";
-import DataMap from './DataMap';
-import DataSidebar from './DataSidebar';
 import Navbar from './Navbar';
-import { motion, useInView, useAnimation } from "framer-motion";
-import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 function Hero() {
@@ -35,7 +31,7 @@ function Hero() {
                 maxWidth: "18ch",
               }}
             >
-              Reading a map of breast cancer rates in King County.
+              Understanding breast cancer diagnosis rates across King County.
             </h1>
             <p
               style={{
@@ -47,11 +43,9 @@ function Hero() {
                 maxWidth: "60ch",
               }}
             >
-              A reading guide to breast cancer diagnosis rates across King
-              County. The maps and explanations on this site are designed for
-              people without a public-health background. They show what the
-              data measures, where it comes from, and what it
-              does <em>not</em> mean about personal risk.
+              A guide to interpreting breast cancer diagnosis rates across King County, 
+              designed for individuals without a public-health background. This site shows what the data measures,
+               where it comes from, and what it does <em>not</em> tell you about personal risk.
             </p>
             <div className="mt-10 flex items-center gap-8">
               <Link
@@ -68,7 +62,7 @@ function Hero() {
                   borderRadius: "4px",
                 }}
               >
-                Start here
+                Start here →
               </Link>
               <Link
                 to="/map"
@@ -82,7 +76,7 @@ function Hero() {
                   textDecoration: "none",
                 }}
               >
-                Skip, continue to the map →
+                Skip, continue to the map
               </Link>
             </div>
           </div>
@@ -122,37 +116,6 @@ function Hero() {
 }
 
 
-function ExploreData() {
-  const ref = useRef(null); 
-  const isInView = useInView(ref, { amount: 0.5 }); 
-  const controls = useAnimation(); 
-
-  useEffect(() => {
-    if (isInView) {
-      console.log("coming into view");
-      controls.start({ opacity: 1, y: 0, transition: { duration: 1.0 } });
-    } else {
-      console.log("leaving view");
-      controls.start({ opacity: 0, y: 50, transition: { duration: 1.0 } });
-    }
-  }, [isInView, controls]);
-  return (
-    <motion.section
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={controls} 
-      className="flex flex-col items-center w-full text-black bg-white font-inter mt-[-10px]"
-    >
-      <h2 className="text-5xl font-semibold tracking-tighter leading-tight text-center mb-4 max-md:text-4xl">
-        Explore The Data
-      </h2>
-      <div className="flex flex-wrap gap-4 items-start pr-8 pl-8 w-full min-h-[940px] max-md:px-5 max-md:max-w-full mb-8">
-        <DataMap />
-        <DataSidebar />
-      </div>
-    </motion.section>
-  );
-}
 
 function KingCountyGlance() {
   const stats = [
@@ -164,13 +127,13 @@ function KingCountyGlance() {
     },
     {
       value: "148.2",
-      line: "breast cancer diagnoses per 100,000 women — King County, age-adjusted.",
+      line: "breast cancer diagnoses per 100,000 women in King County (age-adjusted).",
       source: "NCI State Cancer Profiles / SEER+NPCR, 2018–2022",
       href: "https://statecancerprofiles.cancer.gov/incidencerates/index.php?stateFIPS=53&areatype=county&cancer=055&stage=999&race=00&sex=2&age=001&type=incd&sortVariableName=count&sortOrder=desc",
     },
     {
       value: "131.3",
-      line: "diagnoses per 100,000 women — United States average for comparison.",
+      line: "breast cancer diagnoses per 100,000 women, the U.S. national average.",
       source: "NCI State Cancer Profiles / SEER+NPCR, 2018–2022",
       href: "https://statecancerprofiles.cancer.gov/incidencerates/index.php?stateFIPS=53&areatype=county&cancer=055&stage=999&race=00&sex=2&age=001&type=incd&sortVariableName=count&sortOrder=desc",
     },
@@ -191,7 +154,6 @@ function KingCountyGlance() {
       }}
     >
       <div className="max-w-[1200px] mx-auto px-10 py-24">
-        {/* Section header — matches Figma SectionHeader component */}
         <div style={{ marginBottom: "56px", textAlign: "left" }}>
           <div
             style={{
@@ -223,7 +185,7 @@ function KingCountyGlance() {
               maxWidth: "60ch",
             }}
           >
-            Six baseline numbers that frame every neighborhood comparison on this site.
+            Four baseline numbers that frame every neighborhood comparison on this site.
           </p>
         </div>
 
@@ -298,7 +260,7 @@ function KingCountyGlance() {
 function PrimerCTA() {
   return (
     <section style={{ backgroundColor: "var(--surface)", borderTop: "1px solid var(--rule)" }}>
-      <div className="max-w-[1200px] mx-auto px-10" style={{ paddingTop: "88px", paddingBottom: "96px" }}>
+      <div className="max-w-[1200px] mx-auto px-10" style={{ paddingTop: "88px", paddingBottom: "96px", textAlign: "left" }}>
         <div style={{ width: "48px", height: "3px", backgroundColor: "var(--brand)", marginBottom: "24px" }} />
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
           <div>
@@ -306,7 +268,7 @@ function PrimerCTA() {
               Before you explore the map, read the primer.
             </h2>
             <p style={{ marginTop: "16px", color: "var(--ink-soft)", fontSize: "16px", lineHeight: "26px", maxWidth: "52ch" }}>
-              The primer explains what the diagnosis rates mean, what the social indicators show, and — critically — what the map does not tell you about personal risk.
+              The primer explains what the diagnosis rates mean, what the social indicators show, and what the map does not tell you about personal risk.
             </p>
           </div>
           <div className="flex items-center gap-6 shrink-0">
@@ -319,9 +281,9 @@ function PrimerCTA() {
                 fontFamily: "var(--font-sans)",
                 fontWeight: 500,
                 fontSize: "15px",
-                padding: "12px 28px",
+                padding: "10px 20px",
                 textDecoration: "none",
-                letterSpacing: "0.02em",
+                borderRadius: "4px",
                 whiteSpace: "nowrap",
               }}
             >
@@ -346,8 +308,7 @@ function Home() {
       <Navbar />
       <Hero />
       <KingCountyGlance />
-      {/* <ExploreData /> */}
-      <PrimerCTA />
+<PrimerCTA />
     </div>
   );
 }
