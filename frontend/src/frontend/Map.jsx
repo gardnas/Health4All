@@ -262,12 +262,22 @@ function SidePanel({ selected, allData }) {
 
       <div style={{ marginTop: '8px' }}>
         <Accordion title="What these numbers suggest">
-          <p>Higher detection rates often reflect better screening access not greater personal cancer risk. Areas with lower rates may have underdiagnosis due to limited healthcare access, language barriers, or lower screening uptake.</p>
-          {comparison === 'higher' && (
-            <p style={{ marginTop: '8px' }}>This area's rate is statistically above the county average, likely reflecting stronger preventive care infrastructure and higher screening participation.</p>
-          )}
-          {comparison === 'lower' && (
-            <p style={{ marginTop: '8px' }}>This area's rate is statistically below the county average. This may reflect lower screening rates, not lower disease risk — early detection is equally important here.</p>
+          {name === 'Renton - South' ? (
+            <p>Renton - South's diagnosis rate is below the county average. Median household income is $25,877 below the county average, 11% of residents fall below the poverty line, and uninsured rates sit at 5.9%. Despite typical insurance coverage, economic pressures can make it harder to afford screening costs, take time off work, or get to a clinic, which may contribute to lower screening participation and a lower recorded rate.</p>
+          ) : name === 'Bellevue - Central' ? (
+            <p>Bellevue - Central's diagnosis rate is close to the county average. Median household income is above the county average, uninsured rates are low at 5.5%, and 9.5% of residents fall below the poverty line. Together these suggest relatively stable access to preventive care, which likely contributes to a rate close to the county average.</p>
+          ) : name === 'Seattle - Capitol Hill' ? (
+            <p>Capitol Hill's diagnosis rate is above the county average. Uninsured rates are low at 3.7% and poverty rates are relatively low at 9%, both associated with stronger screening participation. A higher rate in a well-resourced neighborhood typically reflects more cancers being found through regular screening, not more cancer existing.</p>
+          ) : (
+            <>
+              <p>Higher detection rates often reflect better screening access not greater personal cancer risk. Areas with lower rates may have underdiagnosis due to limited healthcare access, language barriers, or lower screening uptake.</p>
+              {comparison === 'higher' && (
+                <p style={{ marginTop: '8px' }}>This area's rate is statistically above the county average, likely reflecting stronger preventive care infrastructure and higher screening participation.</p>
+              )}
+              {comparison === 'lower' && (
+                <p style={{ marginTop: '8px' }}>This area's rate is statistically below the county average. This may reflect lower screening rates, not lower disease risk — early detection is equally important here.</p>
+              )}
+            </>
           )}
         </Accordion>
         <Accordion title="What you can do">
