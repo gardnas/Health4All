@@ -2,6 +2,7 @@ import React from "react";
 import homepageImg from "../assets/homepage.png";
 import Navbar from './Navbar';
 import { Link } from "react-router-dom";
+import TermTooltip from './TermTooltip';
 
 function Hero() {
   return (
@@ -127,7 +128,7 @@ function KingCountyGlance() {
     },
     {
       value: "148.2",
-      line: "breast cancer diagnoses per 100,000 women in King County (age-adjusted).",
+      line: <>breast cancer diagnoses per 100,000 women in King County (<TermTooltip term="age-adjusted" definition="A method used to make fair comparisons between populations with different age distributions. Since breast cancer is more common in older women, age-adjustment ensures rates reflect differences in detection, not just differences in age." sourceLabel="CDC — National Center for Health Statistics" sourceUrl="https://www.cdc.gov/nchs/hus/sources-definitions/age-adjustment.htm" />).</>,
       source: "NCI State Cancer Profiles / SEER+NPCR, 2018–2022",
       href: "https://statecancerprofiles.cancer.gov/incidencerates/index.php?stateFIPS=53&areatype=county&cancer=055&stage=999&race=00&sex=2&age=001&type=incd&sortVariableName=count&sortOrder=desc",
     },

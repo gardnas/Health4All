@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import Navbar from './Navbar';
+import TermTooltip from './TermTooltip';
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -426,7 +427,7 @@ function MapPage() {
           fontFamily: 'var(--font-serif)', fontSize: '18px', lineHeight: 1.6,
           color: 'var(--ink-soft)', maxWidth: '70ch', textAlign: 'left', marginBottom: '0',
         }}>
-          Age-adjusted diagnosis rates by Health Reporting Area, 2018-2022. Click any neighborhood to see its rate alongside income, insurance, and race/ethnicity data.
+          <TermTooltip term="Age-adjusted" definition="A method used to make fair comparisons between populations with different age distributions. Since breast cancer is more common in older women, age-adjustment ensures rates reflect differences in detection, not just differences in age." sourceLabel="CDC — National Center for Health Statistics" sourceUrl="https://www.cdc.gov/nchs/hus/sources-definitions/age-adjustment.htm" /> diagnosis rates by Health Reporting Area, 2018-2022. Click any neighborhood to see its rate alongside income, insurance, and race/ethnicity data.
         </p>
       </div>
 

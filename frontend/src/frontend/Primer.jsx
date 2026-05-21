@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import Navbar from './Navbar';
 import { Link } from 'react-router-dom';
+import TermTooltip from './TermTooltip';
 
 const sdohIndicators = [
   {
@@ -154,7 +155,7 @@ function Primer() {
           </p>
 
           <p style={{ marginTop: "32px", color: "var(--ink-soft)", fontSize: "17px", lineHeight: "28px" }}>
-            When a woman skips a mammogram, the reason is rarely indifference.
+            When a woman skips a <TermTooltip term="mammogram" definition="An x-ray image of the breast used to detect signs of breast cancer or other abnormal breast changes." sourceLabel="NIH — National Cancer Institute" sourceUrl="https://www.cancer.gov/publications/dictionaries/cancer-terms/def/mammogram" />, the reason is rarely indifference.
             It is more often that she cannot afford the copay, cannot get time
             off work, cannot reach the clinic, or received outreach materials
             she couldn't read. These are structural barriers created by
@@ -163,7 +164,7 @@ function Primer() {
 
           <p style={{ marginTop: "24px", color: "var(--ink-soft)", fontSize: "17px", lineHeight: "28px" }}>
             The indicators on this map were selected because they each measure a
-            distinct structural barrier to screening access, and because
+            distinct structural barrier to <TermTooltip term="screening" definition="Checking for disease when there are no symptoms. For breast cancer, screening typically means a mammogram." sourceLabel="NIH — National Cancer Institute" sourceUrl="https://www.cancer.gov/publications/dictionaries/cancer-terms/def/screening" /> access, and because
             reliable neighborhood-level data is available for King County from
             the U.S. Census Bureau. Together they explain most of the variation
             in mammography rates across the county.
