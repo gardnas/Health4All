@@ -7,25 +7,25 @@ const sdohIndicators = [
     number: "01",
     label: "Median household income",
     mapLabel: "Median household income",
-    body: "Income is a strong predictor of preventive care uptake. Lower-income households face compounding barriers — higher cost-sharing even with insurance, less paid time off, and longer waits at safety-net clinics.",
+    body: "Lower-income households face compounding barriers: higher cost-sharing even with insurance, less paid time off, and longer waits at safety-net clinics.",
   },
   {
     number: "02",
     label: "Uninsured adults",
     mapLabel: "Uninsured adults",
-    body: "Insurance is the most direct gatekeeper to mammography. Without coverage, a screening mammogram costs $100–$300 out of pocket, and uninsured rates can suppress recorded diagnoses by preventing detection in the first place.",
+    body: "Without insurance coverage, a screening mammogram costs $100–$300 out of pocket, and uninsured rates can suppress recorded diagnoses by preventing detection in the first place.",
   },
   {
     number: "03",
     label: "Below poverty line",
     mapLabel: "Below poverty line",
-    body: "Poverty captures households with the fewest resources to absorb healthcare costs, missed work, or transportation to a clinic — barriers that reduce screening uptake independent of insurance status.",
+    body: "Households living below the poverty line often face barriers to screening, including the inability to: afford out-of-pocket costs, take unpaid time off work, and arrange transportation to a clinic. These challenges affect screening rates even among people who have health insurance.",
   },
   {
     number: "04",
     label: "Race / Ethnicity",
     mapLabel: "Race / Ethnicity breakdown",
-    body: "Race and ethnicity are social — not biological — predictors of screening access. Historical disinvestment and unequal clinic distribution have concentrated access barriers in many communities of color. The map shows the full demographic breakdown for each neighborhood.",
+    body: "Screening access is shaped by social conditions, not biology. In many communities of color, historical disinvestment and unequal clinic access have made screening harder to reach.",
   },
 ];
 
@@ -157,8 +157,8 @@ function Primer() {
             When a woman skips a mammogram, the reason is rarely indifference.
             It is more often that she cannot afford the copay, cannot get time
             off work, cannot reach the clinic, or received outreach materials
-            she couldn't read. These are structural barriers — created by
-            policy, planning, and investment decisions — not individual choices.
+            she couldn't read. These are structural barriers created by
+            policy, planning, and investment decisions, not individual choices.
           </p>
 
           <p style={{ marginTop: "24px", color: "var(--ink-soft)", fontSize: "17px", lineHeight: "28px" }}>
@@ -221,7 +221,7 @@ function Primer() {
           <SectionHeader title="A higher diagnosis rate does not mean a neighborhood is more dangerous." />
 
           <p style={{ color: "var(--ink-soft)", fontSize: "17px", lineHeight: "28px" }}>
-            Diagnosis rates count recorded cases — cancers that were found. For
+            Diagnosis rates count <em>recorded</em> cases: cancers that were found. For
             a cancer to be recorded, a person must first be screened. This
             creates a systematic bias in the data: neighborhoods with better
             screening access will show higher diagnosis rates, not because they
@@ -231,21 +231,17 @@ function Primer() {
 
           <p style={{ marginTop: "24px", color: "var(--ink-soft)", fontSize: "17px", lineHeight: "28px" }}>
             The reverse is equally important and often overlooked. A
-            neighborhood with low screening rates will show a{" "}
+            neighborhood with low screening rates will show a <strong>low</strong> diagnosis rate:{" "}
             <strong style={{ color: "var(--ink)", fontWeight: 500 }}>
-              low diagnosis rate — not because it is healthier, but because
-              fewer cancers were caught.
+              not because it is healthier, but because fewer cancers were caught.
             </strong>{" "}
             Those undetected cancers still exist. They will eventually be found
             at later stages, when treatment is harder and outcomes are worse.
           </p>
 
           <p style={{ marginTop: "24px", color: "var(--ink-soft)", fontSize: "17px", lineHeight: "28px" }}>
-            Read the map as a map of screening access and detection capacity.
-            Dark colors in well-resourced neighborhoods may reflect a strength
-            in the health system — early detection working as intended. Light
-            colors in under-resourced areas are the most concerning signal:
-            they likely mean undetected disease.
+            Read the map as a map of screening access and detection capacity. Dark colors in well-resourced neighborhoods may reflect a strength in the health system, 
+            with early detection working as intended. Light colors in under-resourced areas may indicate undetected disease.
           </p>
 
           <div style={{ marginTop: "40px", paddingLeft: "20px", borderLeft: "3px solid var(--accent)" }}>
